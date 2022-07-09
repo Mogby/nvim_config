@@ -1,0 +1,5 @@
+require("init_plugins")
+require("init_lsp")
+require("init_plugins")
+require("init_lsp")
+require("init_environment")
