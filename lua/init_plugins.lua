@@ -31,8 +31,16 @@ require('packer').startup(function()
 
   -- Very powerful text search
   use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
+  use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { 'nvim-lua/plenary.nvim', 'nvim-treesitter/nvim-treesitter' }
+  }
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
   }
 
   -- File explorer
@@ -43,10 +51,18 @@ require('packer').startup(function()
     },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
+
+  use({ "ojroques/vim-oscyank" }) -- yank into system clipboard
 end)
 
 require('plugins/cmp')
 require('plugins/lualine')
 require('plugins/nvim-lsp-installer')
 require('plugins/nvim-tree')
+require('plugins/nvim-treesitter')
 require('plugins/telescope')
+
+-- always yank into system clipboard
+vim.cmd([[
+  autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
+]])
