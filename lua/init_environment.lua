@@ -13,6 +13,7 @@ map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {})
 map('n', '<leader>tt', '<cmd>Telescope<cr>', {})
 
 map('n', '<F2>', '<cmd>NvimTreeToggle<cr>', {})
+map('n', '<leader>fr', '<cmd>NvimTreeFindFile<cr>', {})
 
 map('n', '<leader>pp', '<cmd>set paste<cr>', {})
 map('n', '<leader>np', '<cmd>set nopaste<cr>', {})
