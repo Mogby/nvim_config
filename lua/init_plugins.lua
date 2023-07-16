@@ -33,6 +33,12 @@ require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'quangnguyen30192/cmp-nvim-ultisnips'
 
+  -- Commenter
+  use 'numToStr/Comment.nvim'
+
+  -- Copy-paste between vim and system clipboard
+  use { 'ojroques/nvim-osc52' }
+
   -- Colorscheme
   use 'michalbachowski/vim-wombat256mod'
 
@@ -62,17 +68,15 @@ require('packer').startup(function(use)
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
-  use({ "ojroques/vim-oscyank" }) -- yank into system clipboard
+  -- Copilot
+  use { "github/copilot.vim" }
 end)
 
 require('plugins/cmp')
 require('plugins/lualine')
 require('plugins/nvim-lsp-installer')
+require('plugins/nvim-osc52')
 require('plugins/nvim-tree')
 require('plugins/nvim-treesitter')
 require('plugins/telescope')
-
--- always yank into system clipboard
-vim.cmd([[
-  autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
-]])
+require('Comment').setup()
