@@ -6,6 +6,8 @@ local opt = vim.opt             -- global/buffer/windows-scoped options
 
 -- Key bindings
 
+g.mapleader = ' '
+
 map('n', '<leader>ff', '<cmd>Telescope find_files hidden=true<cr>', {})
 map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {})
 map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', {})
