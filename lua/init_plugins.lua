@@ -16,8 +16,14 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Lsp plugins
-  use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
+  use {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
+  }
+
+  -- Formatter
+  use 'psf/black'
 
   -- Snippets engine
   use 'SirVer/ultisnips'
@@ -72,6 +78,7 @@ require('packer').startup(function(use)
   use { "github/copilot.vim" }
 end)
 
+require('plugins/black')
 require('plugins/cmp')
 require('plugins/lualine')
 require('plugins/nvim-lsp-installer')
@@ -80,3 +87,5 @@ require('plugins/nvim-tree')
 require('plugins/nvim-treesitter')
 require('plugins/telescope')
 require('Comment').setup()
+require('mason').setup()
+require('mason-lspconfig').setup()
