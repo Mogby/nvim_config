@@ -48,7 +48,7 @@ lspconfig.util.default_config = vim.tbl_deep_extend(
 lspconfig.clangd.setup({})
 lspconfig.cmake.setup({})
 lspconfig.pyright.setup({})
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
   enableNvimLuaDev = true
 })
 
