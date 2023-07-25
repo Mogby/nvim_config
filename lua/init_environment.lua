@@ -33,3 +33,10 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.smarttab = true
+
+-- Recognize GLSL filetypes
+
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
+  pattern={'*.vert', '*.tesc', '*.tese', '*.glsl', '*.geom', '*.frag', '*.comp', '*.rgen', '*.rmiss', '*.rchit', '*.rahit', '*.rint', '*.rcall'},
+  command='set filetype=glsl'
+})
