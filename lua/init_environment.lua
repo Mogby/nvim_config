@@ -1,8 +1,16 @@
-local cmd = vim.cmd             -- execute Vim commands
-local exec = vim.api.nvim_exec  -- execute Vimscript
+local cmd = vim.cmd            -- execute Vim commands
+local exec = vim.api.nvim_exec -- execute Vimscript
 local map = vim.api.nvim_set_keymap
-local g = vim.g                 -- global variables
-local opt = vim.opt             -- global/buffer/windows-scoped options
+local g = vim.g                -- global variables
+local opt = vim.opt            -- global/buffer/windows-scoped options
+
+--
+
+g.python3_host_prog = "~/.config/nvim/.venv/bin/python"
+
+-- Language
+
+cmd("language en_US")
 
 -- Key bindings
 
@@ -22,9 +30,7 @@ map('n', '<leader>np', '<cmd>set nopaste<cr>', {})
 
 -- Various settings
 
-cmd "colorscheme wombat256mod"
-
-opt.mouse='a'
+opt.mouse = 'a'
 
 opt.number = true
 opt.relativenumber = true
@@ -36,7 +42,7 @@ opt.smarttab = true
 
 -- Recognize GLSL filetypes
 
-vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
-  pattern={'*.vert', '*.tesc', '*.tese', '*.glsl', '*.geom', '*.frag', '*.comp', '*.rgen', '*.rmiss', '*.rchit', '*.rahit', '*.rint', '*.rcall'},
-  command='set filetype=glsl'
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = { '*.vert', '*.tesc', '*.tese', '*.glsl', '*.geom', '*.frag', '*.comp', '*.rgen', '*.rmiss', '*.rchit', '*.rahit', '*.rint', '*.rcall' },
+  command = 'set filetype=glsl'
 })
