@@ -17,8 +17,7 @@ require('packer').startup(function(use)
 
   -- Lsp plugins
   use {
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
+    'mason-org/mason.nvim',
     'neovim/nvim-lspconfig',
   }
 
@@ -88,6 +87,8 @@ require('packer').startup(function(use)
   }
   use { 'lewis6991/gitsigns.nvim' }
 end)
+
+require('mason').setup()
 
 require('plugins/black')
 
